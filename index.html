@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { 
+            background: #1a1a2e; 
+            color: white; 
+            font-family: sans-serif; 
+            padding: 15px; 
+            padding-bottom: 50px;
+        }
+        h2 { color: #ff6b00; text-align: center; margin-bottom: 20px; }
+        h3 { color: #888; margin-top: 20px; margin-bottom: 10px; font-size: 14px; text-transform: uppercase; }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        button {
+            background: #2a2a35; 
+            color: white; 
+            border: 1px solid #444;
+            padding: 12px; 
+            border-radius: 10px; 
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:active { background: #ff6b00; border-color: #ff6b00; }
+    </style>
+</head>
+<body>
+    <h2>Выбери пару</h2>
+    
+    <h3>Мажоры (Основные)</h3>
+    <div class="grid">
+        <button onclick="sendPair('EURUSD')">EUR/USD</button>
+        <button onclick="sendPair('GBPUSD')">GBP/USD</button>
+        <button onclick="sendPair('USDJPY')">USD/JPY</button>
+        <button onclick="sendPair('AUDUSD')">AUD/USD</button>
+        <button onclick="sendPair('USDCAD')">USD/CAD</button>
+        <button onclick="sendPair('USDCHF')">USD/CHF</button>
+        <button onclick="sendPair('NZDUSD')">NZD/USD</button>
+    </div>
+
+    <h3>Кросс-курсы (Европа)</h3>
+    <div class="grid">
+        <button onclick="sendPair('EURGBP')">EUR/GBP</button>
+        <button onclick="sendPair('EURJPY')">EUR/JPY</button>
+        <button onclick="sendPair('EURCHF')">EUR/CHF</button>
+        <button onclick="sendPair('EURCAD')">EUR/CAD</button>
+        <button onclick="sendPair('EURAUD')">EUR/AUD</button>
+        <button onclick="sendPair('EURNZD')">EUR/NZD</button>
+        <button onclick="sendPair('GBPJPY')">GBP/JPY</button>
+        <button onclick="sendPair('GBPCHF')">GBP/CHF</button>
+        <button onclick="sendPair('GBPCAD')">GBP/CAD</button>
+        <button onclick="sendPair('GBPAUD')">GBP/AUD</button>
+    </div>
+
+    <h3>Кросс-курсы (Азия/Океания)</h3>
+    <div class="grid">
+        <button onclick="sendPair('AUDCAD')">AUD/CAD</button>
+        <button onclick="sendPair('AUDCHF')">AUD/CHF</button>
+        <button onclick="sendPair('AUDJPY')">AUD/JPY</button>
+        <button onclick="sendPair('AUDNZD')">AUD/NZD</button>
+        <button onclick="sendPair('CADJPY')">CAD/JPY</button>
+        <button onclick="sendPair('CADCHF')">CAD/CHF</button>
+        <button onclick="sendPair('CHFJPY')">CHF/JPY</button>
+        <button onclick="sendPair('NZDJPY')">NZD/JPY</button>
+        <button onclick="sendPair('NZDCAD')">NZD/CAD</button>
+        <button onclick="sendPair('NZDCHF')">NZD/CHF</button>
+    </div>
+
+    <h3>Экзотика и Скандинавия</h3>
+    <div class="grid">
+        <button onclick="sendPair('USDMXN')">USD/MXN</button>
+        <button onclick="sendPair('USDZAR')">USD/ZAR</button>
+        <button onclick="sendPair('USDTRY')">USD/TRY</button>
+        <button onclick="sendPair('USDSEK')">USD/SEK</button>
+        <button onclick="sendPair('USDNOK')">USD/NOK</button>
+        <button onclick="sendPair('USDSGD')">USD/SGD</button>
+        <button onclick="sendPair('USDPLN')">USD/PLN</button>
+        <button onclick="sendPair('EURNOK')">EUR/NOK</button>
+        <button onclick="sendPair('EURSEK')">EUR/SEK</button>
+        <button onclick="sendPair('EURTRY')">EUR/TRY</button>
+    </div>
+
+    <h3>Криптовалюты (Пары к USD)</h3>
+    <div class="grid">
+        <button onclick="sendPair('BTCUSD')">BTC/USD</button>
+        <button onclick="sendPair('ETHUSD')">ETH/USD</button>
+        <button onclick="sendPair('LTCUSD')">LTC/USD</button>
+        <button onclick="sendPair('XRPUSD')">XRP/USD</button>
+        <button onclick="sendPair('DOGEUSD')">DOGE/USD</button>
+        <button onclick="sendPair('SOLUSD')">SOL/USD</button>
+        <button onclick="sendPair('ADAUSD')">ADA/USD</button>
+        <button onclick="sendPair('BNBUSD')">BNB/USD</button>
+    </div>
+
+    <h3>Металлы и Товары</h3>
+    <div class="grid">
+        <button onclick="sendPair('XAUUSD')">Золото (XAU/USD)</button>
+        <button onclick="sendPair('XAGUSD')">Серебро (XAG/USD)</button>
+        <button onclick="sendPair('USOIL')">Нефть (WTI)</button>
+        <button onclick="sendPair('UKOIL')">Нефть (Brent)</button>
+        <button onclick="sendPair('XPTUSD')">Платина (XPT/USD)</button>
+    </div>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();
+
+        function sendPair(pair) {
+            tg.sendData(pair);
+            tg.close();
+        }
+    </script>
+</body>
+</html>
