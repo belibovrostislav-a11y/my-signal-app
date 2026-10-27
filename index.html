@@ -13,7 +13,7 @@
             padding: 15px; 
             padding-bottom: 50px;
         }
-        h2 { color: #ff6b00; text-align: center; margin-bottom: 20px; }
+        h2 { color: #ff6b00; text-align: center; margin-bottom: 10px; }
         h3 { color: #888; margin-top: 20px; margin-bottom: 10px; font-size: 14px; text-transform: uppercase; }
         .grid {
             display: grid;
@@ -36,7 +36,7 @@
 <body>
     <h2>Выбери пару</h2>
     
-    <h3>Мажоры (Основные)</h3>
+    <h3>Мажоры</h3>
     <div class="grid">
         <button onclick="sendPair('EURUSD')">EUR/USD</button>
         <button onclick="sendPair('GBPUSD')">GBP/USD</button>
@@ -89,7 +89,7 @@
         <button onclick="sendPair('EURTRY')">EUR/TRY</button>
     </div>
 
-    <h3>Криптовалюты (Пары к USD)</h3>
+    <h3>Криптовалюты</h3>
     <div class="grid">
         <button onclick="sendPair('BTCUSD')">BTC/USD</button>
         <button onclick="sendPair('ETHUSD')">ETH/USD</button>
@@ -103,11 +103,11 @@
 
     <h3>Металлы и Товары</h3>
     <div class="grid">
-        <button onclick="sendPair('XAUUSD')">Золото (XAU/USD)</button>
-        <button onclick="sendPair('XAGUSD')">Серебро (XAG/USD)</button>
+        <button onclick="sendPair('XAUUSD')">Золото (XAU)</button>
+        <button onclick="sendPair('XAGUSD')">Серебро (XAG)</button>
         <button onclick="sendPair('USOIL')">Нефть (WTI)</button>
         <button onclick="sendPair('UKOIL')">Нефть (Brent)</button>
-        <button onclick="sendPair('XPTUSD')">Платина (XPT/USD)</button>
+        <button onclick="sendPair('XPTUSD')">Платина (XPT)</button>
     </div>
 
     <script>
